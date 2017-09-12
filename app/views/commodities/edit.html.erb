@@ -1,0 +1,26 @@
+<% provide(:title, 'Edit_Commodity_Details') %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3>Commodity Details</h3><br/>
+      <section class="user_info">
+        <%= form_for(@commodity) do |f| %>
+      <%= render 'shared/error_messages1' %>
+      
+      <%= f.label :Commodity_Name %>
+      <%= f.text_field :commname, class: 'form-control', :disabled => true %>
+      
+      <%= f.label :description %>
+      <%= f.text_area(:description, size: '50x10') %>
+
+      <%= f.label :Price %>
+      <%= f.text_field :price, class: 'form-control' %>
+
+      <%= f.label :Quantity %>
+      <%= f.text_field :quantity, class: 'form-control' %>
+
+      <%= f.submit "Update Details", class: "btn btn-primary" %>
+    <% end %>
+      </section>
+    </div>
+</div>
+

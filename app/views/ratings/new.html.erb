@@ -1,0 +1,17 @@
+<!-- Should open only for buyer -->
+<% provide(:title, 'Rate a Seller') %>
+<h1>Rate a Seller</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@rating) do |f| %>
+      <br/>
+      <!--get this value from the product page -->
+      <%= f.label :user_id, "SellerID" %>
+      <%= f.text_field :user_id, :value => @rating.id, class: 'form-control' %>
+
+      <%= f.label :rating, "Rating" %>
+      <%= f.text_field :rating, class: 'form-control' %>
+      <%= f.submit "Submit Rating", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

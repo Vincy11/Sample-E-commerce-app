@@ -1,0 +1,22 @@
+<% provide(:title, 'All Commodities') %>
+<h1 style="text-align: left; font-size:30px">List of Commodities</h2>
+<%= will_paginate %>
+  <table class="table table-striped">
+  <tr>
+    <th>Commodity Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Options</th>
+  </tr>
+  <% @commodities.each do |comm| %>
+  <% if comm.user_id == session[:user_id] %> <!-- Security concern find a way to do it safely -->
+    <tr>
+      <td><%= link_to comm.commname, edit_commodity_path(comm) %></td>
+      <td><%= link_to comm.price, edit_commodity_path(comm) %></td>
+      <td><%= link_to comm.quantity, edit_commodity_path(comm) %></td>
+      <td><%= link_to "delete", comm, method: :delete, data: { confirm: "You sure?" } %></td>
+    </tr>
+    <%end%>
+  <% end %>
+</table>
+<%= will_paginate %>

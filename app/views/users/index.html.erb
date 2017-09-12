@@ -1,0 +1,22 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+<%= will_paginate %>
+  <table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Location Latitude</th>
+    <th>Location Longitude</th>
+    <th>Commodity Buy/Sell</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name, user %></td>
+      <td><%= link_to user.email, user %></td>
+      <td><%= link_to user.loclat, user %></td>
+      <td><%= link_to user.loclong, user %></td>
+      <td><%= link_to user.commcount, user %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate %>

@@ -1,0 +1,19 @@
+<% provide(:title, 'Show_Detailed_Message') %>
+<div class="row">
+    <aside class="col-md-8" style="padding-left: 2px; padding-right: 2px;">
+      <h2 class="text-left">Message Information</h2>
+      <section class="user_info">
+        <%= label :count, "Message From: " %>
+        <%= @messages.fromid %>
+        <br/>
+        <%= label :count, "Message: " %>
+        <%= @messages.message %>
+        <br/>
+        <%= label :count, "Recieved at: " %>
+        <%= @messages.updated_at %>
+        
+        <li><%= link_to "Reply to this message", new_message_path(:rid => @messages.fromid) %></li>
+      </section>
+    </aside>
+</div>
+

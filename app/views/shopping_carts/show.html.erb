@@ -1,0 +1,12 @@
+<h1>Shopping Cart</h1>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Cart Items:</div>
+<%= render :partial => 'shopping_cart_item', :collection => @shopping_cart.shopping_cart_items %>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item"><b>SubTotal:</b><aside class="text-right"><%= number_to_currency @shopping_cart.subtotal %></aside></li>
+  <li class="list-group-item"><b>Taxes:</b><aside class="text-right"><%= number_to_currency @shopping_cart.taxes %></aside></li>
+  <li class="list-group-item"><b>Total:</b><aside class="text-right"><%= number_to_currency @shopping_cart.total %></aside></li>
+</ul>

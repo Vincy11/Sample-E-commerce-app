@@ -1,0 +1,22 @@
+<% provide(:title, 'All Messages') %>
+<h1 style="text-align: left; font-size:30px">List of Messages</h2>
+<%= will_paginate %>
+  <table class="table table-striped">
+  <tr>
+    <th>Message ID</th>
+    <th>From ID</th>
+    <th>Message</th>
+    <th>Sent @Time</th>
+    <th>Options</th>
+  </tr>
+  <% @messages.each do |mess| %>
+    <tr>
+      <td><%= link_to mess.id, mess %></td>
+      <td><%= link_to mess.fromid, mess %></td>
+      <td><%= link_to mess.message, mess %></td>
+      <td><%= link_to time_ago_in_words(mess.created_at), mess %> ago</td>
+      <td><%= link_to "delete", mess, method: :delete, data: { confirm: "You sure?" } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate %>

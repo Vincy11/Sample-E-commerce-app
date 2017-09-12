@@ -1,0 +1,43 @@
+<% provide(:title, 'Show_Commodity_Details') %>
+<div class="row">
+  <br/><br/>
+</div>
+<div class="row">
+  <div class="col-md-6">
+      <%= render 'shared/error_messages1' %>
+      <div class="col-xs-6 col-md-4 thumbnail">
+      <%= link_to image_tag("5.PNG", alt: "Logo") %>
+      </div>
+      <div class="col-xs-6 col-md-6">
+      <p class="text-left lead" style="margin-left:30px"><%= label :commname, @commodity.commname %> - <%= @commodity.commtype %></p><br/>
+      </div>
+  </div>
+  <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <br/><br/>Price ranges from:<h2>$<%= @commodity.min %></h2> <p class="text-center">to</p> <h2>$<%= @commodity.max %></h2><br/>
+      <% session[:commname] %>
+    </div>
+  </div>
+<div class="row">
+   <div class="col-md-8 text-justify">
+     <p class="text-left" style="Color:#d9534f">Description:</p>
+      <%= @commodity.description %>
+     </div>
+     <div class="col-md-4 text-justify">
+       <p class="text-left" style="Color:#d9534f">Available Sellers: (Sorted based on location)</p>
+       <!-- code to display all the remaining sellers -->
+       <ul class="list-group">
+         <% @dist.each do |t| %>
+          <li class="list-group-item">
+            <span class="badge"><%= t[3] %></span>
+            <h5 class="text-center">Seller: <b><%= t[1] %></b></h5>
+              <%= link_to 'Add to cart', shopping_cart_path(:product_id => t[4]), :method => 'POST', class: "btn btn-success" %>
+              <p style="text-align: right">Have a Question?<br/></p>
+              <h6 style="text-align: right;"><%= link_to "Send Seller a Message", new_message_path(:id => t[2]) %></h6>
+              <h6 style="text-align: left;"><%= link_to "Rate this Seller!", new_rating_path(:id => t[2]) %></h6>
+          </li>
+          <% end %>
+      </ul>
+     </div>
+</div><br/><br/><br/>
+

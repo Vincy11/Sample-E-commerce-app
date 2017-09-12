@@ -1,0 +1,16 @@
+<% provide(:title, 'Show_Detailed_Rating') %>
+<div class="row">
+    <aside class="col-md-8" style="padding-left: 2px; padding-right: 2px;">
+      <h2 class="text-left">Rating Information</h2>
+      <section class="user_info">
+        <%= label :count, "Total Rating: " %>
+        <%= @rating.rating %>
+        <br/>
+        <%= label :count, "Rated by: " %>
+        <%= @rating.ratingcount %> people
+        <br/>
+        <%= label :count, "Your ID: " %>
+        <%= @rating.user_id%>
+      </section>
+    </aside>
+</div>

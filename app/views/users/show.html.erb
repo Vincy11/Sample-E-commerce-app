@@ -1,0 +1,27 @@
+<% provide(:title, 'Show_Details') %>
+<div class="row">
+  <div class="center jumbotron">
+  <p class="<%= @user.color %>"> </p> <h1>Welcome <%= @user.name %>, this is your <%= @user.usertype %> profile.</h1>
+  </div>
+  <aside class="col-md-6" style="padding-left: 2px; padding-right: 2px;">
+    <section class="user_info">
+      <blockquote style="color:<%= @user.color %>">
+      <h1>
+        <%= label :count, "Welcome to E commerce App! " %>
+      </h1>
+      </blockquote>
+    </section>
+    </aside>
+    <% if @user.usertype == "seller" %>
+    <aside class="col-md-6" style="padding-left: 2px; padding-right: 2px;">
+      <section class="user_info">
+        <h1 style="text-align:right">
+        <%= label :count, "Total Commodity available for sale: " %>
+        <%= @user.count %>
+        </h1>
+        <p style="text-align:right"><%= link_to "Want to chnage your details?", edit_user_path(current_user) %></p>
+      </section>
+    </aside>
+    <% end %>
+</div>
+

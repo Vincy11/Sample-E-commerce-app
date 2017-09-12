@@ -1,0 +1,28 @@
+<% provide(:title, 'Items') %>
+<h1 style="text-align: left; font-size:30px">List of items</h2>
+<div class="row">
+  <div class="col-md-12">
+      <% @a = [] %>
+  <% @items.each do |comm| %>
+    <% if @a.length == 0 %>
+    <% @a.push comm.commname %>
+      <div class="col-xs-6 col-md-3 thumbnail">
+      <%= link_to image_tag("5.PNG", alt: "Rails logo"), comm%>
+      <div class="caption">
+        <%= link_to comm.commname, displayitem_path(comm.id) %>
+      </div>
+      </div>
+    <% elsif %>
+    <% @a.each do |st| %>
+    <% if st != comm.commname %>
+    <div class="col-xs-6 col-md-3 thumbnail">
+      <%= link_to image_tag("5.PNG", alt: "Rails logo")%>
+      <div class="caption">
+        <%= link_to comm.commname, displayitem_path(comm.id) %>  <!-- if any error revert displayitem_path(comm) to comm -->
+      </div>
+      </div>
+    <%end%>
+    <%end%>
+    <% end %>
+    <% end %>
+</table>

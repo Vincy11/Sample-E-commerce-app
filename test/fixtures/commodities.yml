@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commname: MyString
+  price: 1.5
+  quantity: 1
+
+two:
+  commname: MyString
+  price: 1.5
+  quantity: 1
